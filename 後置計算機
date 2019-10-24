@@ -1,0 +1,63 @@
+##還在除錯中
+from __future__ import annotations
+class Stack:
+    def __init__(self):
+        self._array1 = []
+        self._array2 = []
+        
+        
+    def pushdata(self):
+        data=str(input("請輸入後續式："))
+        self._array1 += list(data)
+        print(self._array1)
+    
+    def pushon(self):
+        self._array2 += self._array1[0]
+        self._array1 -= self._array1[0]
+    
+    def pushback(self):
+        self._array2 -= self._array2[0]
+        self._array1 += self._array2[0]
+        
+    
+
+    def count1(self):
+        if self._array1[2] in "+":
+            return int(self._array1[0])+int(self._array1[1])
+        elif self._array1[1] in "+":
+            return int(self._array1[0])+int(self._array1[2])
+        elif self._array1[0] in "+":
+            return int(self._array1[1])+int(self._array1[2])
+        elif self._array1[2] in "*":
+            return int(self._array1[0])*int(self._array1[1])
+        elif self._array1[1] in "*":
+            return int(self._array1[0])*int(self._array1[2])
+        elif self._array1[0] in "*":
+            return int(self._array1[1])*int(self._array1[2])
+        
+    def count2(self):
+        if self._array2[2] in "-":
+            return int(self._array2[0])-int(self._array2[1])
+        elif self._array2[2] in "/":
+            return int(self._array2[0])/int(self._array2[1])
+        
+    def datacheck(self):
+        while self._array2[0] and self._array2[1] in self._array2:
+            self._array2[0]+self._array2[1]
+            
+
+def dump(deck):
+    print("這是一個簡易的計算機")
+    deck.pushdata()
+    while len(deck.array1) != 1:
+        if deck.array1[2] == "+" or "*":
+            deck.count1()
+            deck.pushon()
+            deck.datacheck()
+        elif deck.array1[2] == "-"or"/":
+            deck.count2()
+            deck.pushon()
+            deck.datacheck()
+        else:
+            deck.pushback()
+    print(deck.array1[0])
