@@ -10,14 +10,6 @@ class Stack:
         data=str(input("請輸入後續式："))
         self._array1 += list(data)
         print(self._array1)
-    
-    def pushon(self):
-        self._array2 += self._array1[0]
-        self._array1 -= self._array1[0]
-    
-    def pushback(self):
-        self._array2 -= self._array2[0]
-        self._array1 += self._array2[0]
         
     
 
@@ -42,22 +34,16 @@ class Stack:
             return int(self._array2[0])/int(self._array2[1])
         
     def datacheck(self):
-        while self._array2[0] and self._array2[1] in self._array2:
+        if self._array2[0] and self._array2[1] in self._array2:
             self._array2[0]+self._array2[1]
             
 
 def dump(deck):
     print("這是一個簡易的計算機")
     deck.pushdata()
-    while len(deck.array1) != 1:
-        if deck.array1[2] == "+" or "*":
-            deck.count1()
-            deck.pushon()
-            deck.datacheck()
-        elif deck.array1[2] == "-"or"/":
-            deck.count2()
-            deck.pushon()
-            deck.datacheck()
-        else:
-            deck.pushback()
-    print(deck.array1[0])
+    deck.count2()
+    print(deck.count2())
+        
+if __name__ == "__main__":
+    deck = Stack()
+    dump(deck)
