@@ -1,31 +1,26 @@
 class Node:
-    def __init__(self,data:int):
+    def __init__(self,data): 
         self._data = data
         self._next = None
     def addNode1(self):
-        last = int(input("請輸入要儲存的一個數字(節點一)："))
+        last = input("請輸入要儲存的一個數字(節點一)：")
         node1 = Node(last)
-        last.next = node1
+        last._next += node1
     def addNode2(self):
-        last = int(input("請輸入要儲存的一個數字（節點二）："))
+        last = input("請輸入要儲存的一個數字（節點二）：")
         node2 = Node(last)
-        last.next = node2
+        last._next = node2
     def addNode3(self):
-        last = int(input("請輸入要儲存的一個數字（節點三）："))
+        last = input("請輸入要儲存的一個數字（節點三）：")
         node3 = Node(last)
-        last.next = node3
+        last._next = node3
 
 
 def dump(deck):
     deck.addNode1()
-    print(f"到達節點一，資料為{self._next}")
-    if (self._next == node1):
-        print("到達節點二資料為{self._next}")
-        deck.addNode2()
-        if (self._next == node2):
-            print("到達節點三資料為{self._next}")
-            deck.addNode3()
+    print(f"到達節點一，資料為{last._next}")
+    
             
-if __name__=="__main__":
+dump(deck)
     
     
