@@ -1,1 +1,11 @@
 
+class Node:
+    def __init__(self,data:int):
+        self._data = data
+        self._next = None
+    def addNode1(self):
+        last1 = int(input("請輸入要儲存的一個數字：(節點一)"))
+        node1 = Node(last)
+        last.next = node1
+    def addNode2(self):
+        last
