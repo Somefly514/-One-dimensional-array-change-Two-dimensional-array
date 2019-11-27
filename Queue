@@ -1,1 +1,80 @@
+#1
+'''
+class Queue:
+    def __init__(self,count:int):
+        self._array = [None for _ in range (count)]
+        self._head = 0
+        self._tail = 0
+    
+    def enqueue(self,e:int) -> int:
+        self._array[self._tail] = e
+        self._tail += 1
+        return self._array[self._tail - 1]
+    
+    def dequeue(self) -> int:
+        i = None
+        i = self._array[self._head]
+        self._array[self._head] = None
+        self._head += 1
+        return i
+    
+def dump(deck):
+    print("佇列的實作練習將資料加入尾端")
+    for i in range (5):
+        deck.enqueue(i)
+        print(deck._array)
+    print("從頭取出資料")
+    for i in range (5):
+        s = deck.dequeue()
+        print(f"取出頭的資料{s}")
+        print(deck._array)
 
+if __name__=="__main__":
+    deck = Queue(10)
+    dump(deck)
+'''
+#3
+class crQueue:
+    def __init__(self,count:int):
+        self._array = [None for _ in range (count)]
+        self._head = 0
+        self._tail = 0
+    
+    def enqueue(self,e:int):
+        if (self._head % len(self._array) == (self._tail + 1)  % len(self._array)):
+            print("佇列已滿無法填入資料")
+        else:
+            self._array[self._tail % len(self._array)] = e
+            self._tail = (self._tail + 1) % len(self._array)
+    def dequeue(self) -> int:
+        if self._head % len(self._array) == self._tail % len(self._array) :
+            print("佇列目前為全空")
+        else:
+            self._head % len(self._array)
+            i = None
+            i = self._array[self._head % len(self._array)]
+            self._array[self._head % len(self._array)] = None
+            self._head = self._head +1 % len(self._array)
+            return i
+    
+def dump(deck):
+    print("佇列的實作練習將資料加入尾端")
+    for i in range (12):
+        deck.enqueue(i)
+        print(deck._array)
+        print(deck._head,deck._tail)
+        
+    print("從頭取出資料")
+    for i in range (11):
+        s = deck.dequeue()
+        print(f"取出頭的資料{s}")
+        print(deck._array)
+        print(deck._head,deck._tail)
+    for i in range (3):
+        deck.enqueue(i)
+        print(deck._array)
+    print(deck._head,deck._tail)
+
+if __name__=="__main__":
+    deck = crQueue(10)
+    dump(deck)
