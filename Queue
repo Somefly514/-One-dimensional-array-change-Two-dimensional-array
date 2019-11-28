@@ -33,7 +33,62 @@ if __name__=="__main__":
     deck = Queue(10)
     dump(deck)
 '''
+#2
+'''
+class LinkQueue:
+    def __init__(self,data:int):
+        self.data = data
+        self.next = None
+    
+    def addNode(self,node):
+        sensor = self
+        while sensor.next:
+             sensor = sensor.next
+        sensor.next = node
+    
+    def enqueue(self,i):
+        sensor = self
+        while sensor.next:
+             sensor = sensor.next
+        sensor.next = LinkQueue(i)
+             
+        
+    def dequeue(self):
+        sensor = self
+        sensor.next = sensor.next.next
+
+def dump(link):
+    print("link佇列")
+    sensor = link
+    
+    head.dequeue()
+    while sensor:
+        print(f" -> {sensor.data}",end="" )
+        sensor = sensor.next
+        print()
+
+    
+if __name__ == "__main__":
+    text= "zxcvbnm"
+    print(f"建立一個佇列")
+
+    print(f"原始字串是： '{text}'")
+    
+    head = LinkQueue(text[0])
+    
+    for i in text[1:]:
+        head.addNode(LinkQueue(i))
+    head.enqueue("5")
+
+    
+    
+    dump(head)
+
+
+
+'''
 #3
+'''
 class crQueue:
     def __init__(self,count:int):
         self._array = [None for _ in range (count)]
@@ -78,3 +133,4 @@ def dump(deck):
 if __name__=="__main__":
     deck = crQueue(10)
     dump(deck)
+'''
