@@ -1,26 +1,42 @@
+#這邊借鑿了老師程式碼了(因為自己沒有想出來QAQ，這裡主要是在自己想如何寫removeNode，下一個double linklist則只會參照linklist來寫)
+from __future__ import annotations
 class Node:
-    def __init__(self,data): 
-        self._data = data
-        self._next = None
-    def addNode1(self):
-        last = input("請輸入要儲存的一個數字(節點一)：")
-        node1 = Node(last)
-        last._next += node1
-    def addNode2(self):
-        last = input("請輸入要儲存的一個數字（節點二）：")
-        node2 = Node(last)
-        last._next = node2
-    def addNode3(self):
-        last = input("請輸入要儲存的一個數字（節點三）：")
-        node3 = Node(last)
-        last._next = node3
+    def __init__(self,data):
+        self.data = data
+        self.next = None
+    
+    def addNode(self,node:Node):
+        sensor = self
+        while sensor.next:
+             sensor = sensor.next
+        sensor.next = node
+
+    def removeNode(self,i):
+        sensor = self
+        for i in range (i-2):
+            sensor = sensor.next
+        sensor.next = sensor.next.next
+        
+    
+def dump(linked:Node):
+    print("link list測試")
+    sensor = linked
+    head.removeNode(3)
+    while sensor:
+        print(f" -> {sensor.data}",end="" )
+        sensor = sensor.next
+        print()
 
 
-def dump(deck):
-    deck.addNode1()
-    print(f"到達節點一，資料為{last._next}")
+if __name__ == "__main__":
+    text= "zxcvbnm"
+    print(f"建立一個資料串列：\n")
+
+    print(f"原始字串是: '{text}'")
     
-            
-dump(deck)
+    head = Node(text[0])
     
+    for i in text[1:]:
+        head.addNode(Node(i))
     
+    dump(head)
