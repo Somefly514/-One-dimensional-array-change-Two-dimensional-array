@@ -35,6 +35,7 @@ if __name__=="__main__":
 '''
 #2
 '''
+
 class LinkQueue:
     def __init__(self,data:int):
         self.data = data
@@ -55,17 +56,16 @@ class LinkQueue:
         
     def dequeue(self):
         sensor = self
+        sensor.data = sensor.next.data
         sensor.next = sensor.next.next
 
 def dump(link):
     print("link佇列")
     sensor = link
-    
     head.dequeue()
     while sensor:
-        print(f" -> {sensor.data}",end="" )
+        print(f" -> {sensor.data}",end = "" )
         sensor = sensor.next
-        print()
 
     
 if __name__ == "__main__":
@@ -73,18 +73,16 @@ if __name__ == "__main__":
     print(f"建立一個佇列")
 
     print(f"原始字串是： '{text}'")
-    
+
     head = LinkQueue(text[0])
-    
     for i in text[1:]:
         head.addNode(LinkQueue(i))
     head.enqueue("5")
-
+    head.enqueue("4")
+    
     
     
     dump(head)
-
-
 
 '''
 #3
