@@ -1,21 +1,22 @@
+#嘗試製作中
 from __future__ import annotations
-class Tree:
+class Node:
     def __init__(self,data):
-        self.array = []
-        self.p1 = 0
-        self.c1 = 1
-        self.parent = self.array[self.p1]
-        self.child = self.array
-        
-    def append(self.data):
-        
+        self.data = data
+        self.next = None
     
+    def addparent(self,parent):
+    
+    def addchild(self,n:Node):
+        child.appent(n)
+        
+class Tree:
+    _root = Node
     def root(self):
-        return self.parent
+        return self._root
     
-    def addchild(self,p,n):
-        if self.parent == p:
-            self.child.append(n)
-    
-def dump(deck):
-    print("用列表做簡單的樹實現")
+    def addchild(self):
+        node = _root
+        if node == p:
+            node.addchild
+        return for c in node.child:self.addchild
