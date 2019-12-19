@@ -6,22 +6,28 @@ class Node:
         self.children = None
     
     def addchild(self,n: Node):
-        self.children += Node(n)
+        self.children += n
     
 class Tree:
     def root(self):
-        return self._root
+        return self.root
     
     def addchild(self,p: Node,n: Node):
-        Node = self._root
+        Node = self.root
         if Node == p:
             Node.addchild
         
         for c in Node.children:
             self.addchild(c,n)
+
 def dump(deck):
-    p1 = Node("A")
-    deck.parent = p1
-    p2 = Node("B")
-    p3 = Node("C")
-    deck.addchild()
+    print("tree測試")
+    deck.root = d1
+    deck.parent = deck.root
+    deck.Node.addchild(d2)
+    deck.Tree.addchild(d1,d3)
+
+if __name__ == "__main__":
+    d1 = Node("A")
+    d2 = Node("B")
+    d3 = Node("C")
