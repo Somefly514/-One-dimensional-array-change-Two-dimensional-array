@@ -1,22 +1,27 @@
-#嘗試製作中
+#正在製作中~
 from __future__ import annotations
 class Node:
-    def __init__(self,data):
-        self.data = data
-        self.next = None
+    def __init__(self):
+        self.parent = None
+        self.children = None
     
-    def addparent(self,parent):
+    def addchild(self,n: Node):
+        self.children += Node(n)
     
-    def addchild(self,n:Node):
-        child.appent(n)
-        
 class Tree:
-    _root = Node
     def root(self):
         return self._root
     
-    def addchild(self):
-        node = _root
-        if node == p:
-            node.addchild
-        return for c in node.child:self.addchild
+    def addchild(self,p: Node,n: Node):
+        Node = self._root
+        if Node == p:
+            Node.addchild
+        
+        for c in Node.children:
+            self.addchild(c,n)
+def dump(deck):
+    p1 = Node("A")
+    deck.parent = p1
+    p2 = Node("B")
+    p3 = Node("C")
+    deck.addchild()
